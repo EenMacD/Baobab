@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image'
-import SmsForm from './Components/client/SmsForm'
+import SmsForm from './Components/Sms/client/SmsForm'
 
 
 

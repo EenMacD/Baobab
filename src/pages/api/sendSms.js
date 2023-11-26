@@ -1,14 +1,19 @@
+require('dotenv').config();
 const twilio = require('twilio');
+
+
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
+      
       const { phoneNumber, message } = req.body;
 
       // Retrieve Twilio credentials from environment variables
-      const accountSid = 'AC130e08742ea1ad7093dd5b7a10d905c3';
-      const authToken = '140e22a8a273255e5761f7a0e08d8e27';
-      const twilioPhoneNumber = '+447893938578';
+      const accountSid = process.env.TWILIO_ACCOUNT_SID;
+      console.log(accountSid)
+      const authToken = process.env.TWILIO_AUTH_TOKEN;
+      const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
 
       // Create a Twilio client
       const client = twilio(accountSid, authToken);
